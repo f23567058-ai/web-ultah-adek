@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Adek 🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 25px 20px 40px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #e75480;
+      margin-bottom: 20px;
+    }
+
+    /* ===== SLIDER FOTO ===== */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      border-radius: 18px;
+      margin-bottom: 20px;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .slider img.active {
+      opacity: 1;
+    }
+
+    /* ===== TEKS FADE ===== */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+      margin-top: 18px;
+      line-height: 1.8;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .highlight {
+      color: #e75480;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .ending {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    /* ===== LOVE ANIMATION ===== */
+    .heart {
+      position: fixed;
+      bottom: 0;
+      color: #ff5c8a;
+      font-size: 20px;
+      animation: floatUp 4s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Untuk Adek Tersayang 🤍</h1>
+
+    <!-- SLIDER FOTO -->
+    <div class="slider">
+      <img src="foto1.jpg" class="active">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+      <img src="foto4.jpg">
+    </div>
+
+    <!-- TEKS ROMANTIS -->
+    <p class="fade">
+      Selamat ulang tahun yaa, sayang ❤✨ Sampai hari ini kak bersyukur banget
+      karena adek hadir di hidup kak. Terima kasih sudah lahir dan tumbuh jadi
+      pribadi yang tulus, hangat, sabar, penyayang, dan selalu bikin kak merasa
+      tenang—walaupun kadang agak nakal dikit hehe.
+    </p>
+
+    <p class="fade">
+      Adek tahu nggak, di setiap doa kak selalu ada harapan supaya adek selalu sehat,
+      hatinya damai, langkahnya dimudahkan, dan semua impian adek pelan-pelan tercapai,
+      sama kak.
+    </p>
+
+    <p class="fade highlight">
+      Di usia adek yang ke-21 tahun ini ✨🤍  
+      jangan pernah lupa betapa berharganya adek
+      dan betapa adek layak untuk dicintai.
+    </p>
+
+    <p class="fade">
+      Bersama adek, kak paham kalau cinta itu bukan soal sempurna,
+      tapi tentang bertahan, saling mengerti,
+      dan tetap memilih satu sama lain meski nggak selalu mudah
+      dan selalu ada aja ujiannya.
+    </p>
+
+    <p class="fade">
+      Selamanya kita berjalan bareng yaa.
+      Kak akan terus ada menjaga, mendukung,
+      dan mencintai adek dengan sepenuh hati.
+      Kak juga mau minta maaf kalau selama ini
+      adek pernah ngalamin hal yang kurang menyenangkan sama kak.
+    </p>
+
+    <p class="fade">
+      Tapi kak pengen kita bisa sampai berkeluarga nanti—
+      saling menguatkan, saling sayang,
+      dan saling support dalam kondisi apa pun.
+    </p>
+
+    <p class="fade ending">
+      Kak sayang adek, hari ini dan selamanya 🤍  
+      <br><br>
+      I LOVE YOU ALWAYS, CINTAKU SAYANGGG 💖✨  
+      <br>
+      POKOKNYA LOPEE-LOPEE CINTAKUU ✨  
+      <br>
+      PINTER-PINTER YAA SAYANG, MISS YOUUU ~~
+    </p>
+
+    <footer>
+      — dari kak yang selalu sayang adek 🤍
+    </footer>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    /* Slider Foto */
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slider img');
+
+    setInterval(() => {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 3000);
+
+    /* Fade In Teks */
+    const fades = document.querySelectorAll('.fade');
+    fades.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('show');
+      }, i * 1200);
+    });
+
+    /* Love Animation */
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }, 800);
+  </script>
+
+</body>
+</html>
